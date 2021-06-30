@@ -1,0 +1,6 @@
+- name: Provisioning Raspberry Pi
+  hosts: raspberry_pi
+  become: yes
+  roles:
+  - apt/
+

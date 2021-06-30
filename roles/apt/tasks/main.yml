@@ -1,0 +1,17 @@
+---
+- name: upgrade all packages
+  apt:
+    name: '*'
+    state: latest
+
+- name: update all packages
+  apt:
+    upgrade: dist
+
+- name: apt install vim mlocate git
+  apt: 
+    name="{{item}}" state=present
+  with_items:
+    - vim
+    - mlocate
+    - git

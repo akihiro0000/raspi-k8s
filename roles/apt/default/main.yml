@@ -1,0 +1,11 @@
+
+---
+apt:
+  all_update_flag: True
+  all_upgrade_flag: True
+  packages:
+    - name: python-apt
+    - name: vim
+    - name: wget
+    - name: i2c-tools
+    - name: curl
