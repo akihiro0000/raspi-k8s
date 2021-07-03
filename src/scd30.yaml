@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scd30
+spec:
+  selector:
+    matchLabels:
+       role: app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+         role: app
+    spec:
+      containers:
+      - name: scd30-container
+        image: akihirodive/raspi-k8s:v1.0 
+        imagePullPolicy: Never
+        ports: 1003
