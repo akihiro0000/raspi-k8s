@@ -14,8 +14,17 @@ spec:
     spec:
       containers:
       - name: scd30-container
+        volumeMounts:
+        - mountPath: /dev/i2c-1
+          name: i2c
+        securityContext:
+          privileged: true
         image: akihirodive/raspi-k8s:v1.0 
-        imagePullPolicy: Never    
+        imagePullPolicy: Always
         ports:
-        - containerPort: 1003
-          hostPort: 1003
+        - containerPort: 1000
+          hostPort: 1000
+      volumes:
+      - name: i2c
+        hostPath:
+          path: /dev/i2c-1
