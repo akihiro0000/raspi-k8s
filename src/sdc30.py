@@ -1,6 +1,5 @@
 from scd30_i2c import SCD30
 import time
-import paho.mqtt.client as mqtt
 import pytz
 from datetime import datetime
 import os
