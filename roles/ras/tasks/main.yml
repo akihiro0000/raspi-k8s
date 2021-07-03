@@ -1,0 +1,29 @@
+---
+- name: Create Timezone file.
+  copy: content='Asia/Tokyo'
+    dest=/etc/timezone
+    owner=root
+    group=root
+    mode=0644
+    backup={{ backup }}
+
+- name: update timezone
+  shell: dpkg-reconfigure --frontend noninteractive tzdata
+
+- name: Get I2C status
+  shell: "raspi-config nonint get_i2c"
+  register: i2c_status
+  changed_when: False
+
+- name: Print I2C status
+  debug:
+    msg: "I2C status is: {{ i2c_status.stdout }}"
+
+- name: Get rGPIO status
+  shell: "raspi-config nonint get_rgpio"
+  register: rgpio_status
+  changed_when: False
+
+- name: Print rGPIO status
+  debug:
+    msg: "rGPIO status is: {{ rgpio_status.stdout }}"

@@ -1,0 +1,11 @@
+- name: Provisioning Kubernetes master
+  hosts: master
+  become: true
+  roles:
+    - name: k8s/provisioning
+
+- name: Provisioning Kubernetes workers
+  hosts: workers
+  become: true
+  roles:
+    - name: k8s/provisioning

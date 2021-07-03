@@ -1,0 +1,15 @@
+---
+- name: Install Docker
+  shell: curl -sSL https://get.docker.com | sh && usermod -aG docker pi && apt-mark hold docker-ce
+
+- name: GPG.key
+  shell: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+
+- name: add repository
+  apt_repository:
+    repo: "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+    state: present
+    update_cache: true
+
+- name: Install kubernetes
+  shell: apt-get update && apt-get install -y kubelet=1.21.2-00 kubeadm=1.21.2-00 kubectl=1.21.2-00 && apt-mark hold kubelet kubeadm kubectl

@@ -1,6 +1,13 @@
 - name: Provisioning Raspberry Pi
-  hosts: raspberry_pi
+  hosts: master
   become: yes
   roles:
-  - apt/
+    - ras/
+    - apt/
 
+- name: Provisioning Raspberry Pi
+  hosts: workers
+  become: yes
+  roles:
+    - ras/
+    - apt/
