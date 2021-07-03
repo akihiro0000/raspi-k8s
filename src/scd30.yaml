@@ -15,5 +15,7 @@ spec:
       containers:
       - name: scd30-container
         image: akihirodive/raspi-k8s:v1.0 
-        imagePullPolicy: Never
-        ports: 1003
+        imagePullPolicy: Never    
+      ports:
+      - containerPort: 1003
+        hostPort: 1003
