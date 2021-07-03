@@ -4,6 +4,8 @@ import pytz
 from datetime import datetime
 import os
 
+
+#set scd30 sensor
 try:
     scd30 = SCD30()
 
@@ -18,6 +20,7 @@ except TimeoutError as e:
 
 
 while True:
+    # if scd30 isn't ready, wait 0.2sec
     try:
         if scd30.get_data_ready():
             m = scd30.read_measurement()
