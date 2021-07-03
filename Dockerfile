@@ -11,4 +11,4 @@ RUN git clone --depth 1 https://github.com/akihiro0000/raspi-k8s.git
 
 WORKDIR /raspi-k8s/src
 
-CMD ["python3","sdc30.py"]
+CMD ["python3","scd30.py"]
